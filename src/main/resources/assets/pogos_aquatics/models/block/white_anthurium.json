@@ -1,0 +1,6 @@
+{
+	"parent": "pogos_aquatics:block/anthurium",
+	"textures": {
+		"petal": "pogos_aquatics:blocks/white_anthurium_petal"
+	}
+}

@@ -1,0 +1,6 @@
+{
+	"parent": "pogos_aquatics:block/round_dirt_planter",
+	"textures": {
+		"pot": "pogos_aquatics:blocks/purple_flower_pot"
+	}
+}

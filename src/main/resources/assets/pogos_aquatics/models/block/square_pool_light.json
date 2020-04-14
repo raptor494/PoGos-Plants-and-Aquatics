@@ -1,0 +1,90 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"glass": "pogos_aquatics:blocks/pool_light_glass",
+		"frame": "pogos_aquatics:blocks/pool_light",
+		"particle": "minecraft:blocks/black_concrete"
+	},
+	"elements": [
+		{
+			"from": [3.5, 0, 3.5],
+			"to": [12.5, 1, 12.5],
+			"faces": {
+				"north": {"uv": [0, 0, 9, 1], "texture": "#frame"},
+				"east": {"uv": [0, 0, 9, 1], "texture": "#frame"},
+				"south": {"uv": [0, 0, 9, 1], "texture": "#frame"},
+				"west": {"uv": [0, 0, 9, 1], "texture": "#frame"},
+				"up": {"uv": [0, 0, 9, 9], "texture": "#frame"},
+				"down": {"uv": [7, 7, 16, 16], "texture": "#frame"}
+			}
+		},
+		{
+			"from": [5.5, 1, 5.5],
+			"to": [10.75, 1.25, 10.5],
+			"faces": {
+				"north": {"uv": [0, 0, 7, 0.25], "texture": "#glass"},
+				"east": {"uv": [0, 0, 5, 0.25], "texture": "#glass"},
+				"south": {"uv": [0, 0, 7, 0.25], "texture": "#glass"},
+				"west": {"uv": [0, 0, 5, 0.25], "texture": "#glass"},
+				"up": {"uv": [7.08, 2.88, 14.08, 7.88], "texture": "#glass"},
+				"down": {"uv": [0, 0, 7, 5], "texture": "#glass"}
+			}
+		},
+		{
+			"from": [5.5, 1, 10.5],
+			"to": [10.75, 1.25, 11.5],
+			"faces": {
+				"north": {"uv": [0, 0, 5.25, 0.25], "texture": "#glass"},
+				"east": {"uv": [0, 0, 1, 0.25], "texture": "#glass"},
+				"south": {"uv": [0, 0, 5.25, 0.25], "texture": "#glass"},
+				"west": {"uv": [0, 0, 1, 0.25], "texture": "#glass"},
+				"up": {"uv": [4.08, 0, 9.33, 1], "texture": "#glass"},
+				"down": {"uv": [0, 0, 5.25, 1], "texture": "#glass"}
+			}
+		},
+		{
+			"from": [5.5, 1, 4.5],
+			"to": [10.75, 1.25, 5.5],
+			"faces": {
+				"north": {"uv": [0, 0, 5.25, 0.25], "texture": "#glass"},
+				"east": {"uv": [0, 0, 1, 0.25], "texture": "#glass"},
+				"south": {"uv": [0, 0, 5.25, 0.25], "texture": "#glass"},
+				"west": {"uv": [0, 0, 1, 0.25], "texture": "#glass"},
+				"up": {"uv": [6.04, 0, 11.29, 1], "texture": "#glass"},
+				"down": {"uv": [0, 0, 5.25, 1], "texture": "#glass"}
+			}
+		},
+		{
+			"from": [4.625, 1, 5.375],
+			"to": [5.625, 1.25, 10.625],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.125, 1.125, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 1, 0.25], "texture": "#glass"},
+				"east": {"uv": [0, 0, 5.25, 0.25], "texture": "#glass"},
+				"south": {"uv": [0, 0, 1, 0.25], "texture": "#glass"},
+				"west": {"uv": [0, 0, 5.25, 0.25], "texture": "#glass"},
+				"up": {"uv": [6.04, 0, 11.29, 1], "rotation": 270, "texture": "#glass"},
+				"down": {"uv": [0, 0, 5.25, 1], "rotation": 90, "texture": "#glass"}
+			}
+		},
+		{
+			"from": [10.625, 1, 5.375],
+			"to": [11.625, 1.25, 10.625],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.125, 1.125, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 1, 0.25], "texture": "#glass"},
+				"east": {"uv": [0, 0, 5.25, 0.25], "texture": "#glass"},
+				"south": {"uv": [0, 0, 1, 0.25], "texture": "#glass"},
+				"west": {"uv": [0, 0, 5.25, 0.25], "texture": "#glass"},
+				"up": {"uv": [6.04, 0, 11.29, 1], "rotation": 270, "texture": "#glass"},
+				"down": {"uv": [0, 0, 5.25, 1], "rotation": 90, "texture": "#glass"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "group",
+			"origin": [8, 8, 8],
+			"children": [0]
+		}, 1, 2, 3, 4, 5]
+}
