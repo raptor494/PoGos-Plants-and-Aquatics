@@ -1,7 +1,10 @@
 package com.pogomods.zawamodaddon;
 
+
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 
 public class PogosAquaticsTabs {
 
@@ -9,8 +12,18 @@ public class PogosAquaticsTabs {
 
 		@Override
 		public ItemStack getTabIconItem() {
-			return new ItemStack(PogosAquaticsBlocks.LARGE_GRAVEL);
+			return new ItemStack(PogosAquaticsBlocks.GRAVEL);
 		}
+		
+		@Override
+		public void displayAllRelevantItems(NonNullList<ItemStack> list) {
+			for (Item block : PogosAquaticsBlocks.Registration.items) {
+				block.getSubItems(this, list);
+			}
+			for (Item item : PogosAquaticsItems.Registration.items) {
+				item.getSubItems(this, list);
+			}
+		};
 		
 	};
 	

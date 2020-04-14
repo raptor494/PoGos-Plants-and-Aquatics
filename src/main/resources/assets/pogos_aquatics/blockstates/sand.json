@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "variant=white_sand": { "model": "pogos_aquatics:white_sand" },
+        "variant=black_sand": { "model": "pogos_aquatics:black_sand" },
+        "variant=brown_sand": { "model": "pogos_aquatics:brown_sand" }
+    }
+}

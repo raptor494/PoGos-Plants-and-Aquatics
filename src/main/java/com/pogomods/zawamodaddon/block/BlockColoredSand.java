@@ -16,12 +16,12 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockCustomGravel extends BlockFalling {
+public class BlockColoredSand extends BlockFalling {
 	
-	public static final PropertyEnum<BlockCustomGravel.EnumType> VARIANT = PropertyEnum.create("variant", BlockCustomGravel.EnumType.class);
+	public static final PropertyEnum<BlockColoredSand.EnumType> VARIANT = PropertyEnum.create("variant", BlockColoredSand.EnumType.class);
 	
-	public BlockCustomGravel() {
-		this.setDefaultState(this.getDefaultState().withProperty(VARIANT, BlockCustomGravel.EnumType.SMALL));
+	public BlockColoredSand() {
+		this.setDefaultState(this.getDefaultState().withProperty(VARIANT, BlockColoredSand.EnumType.WHITE));
 	}
 	
 	@Override
@@ -31,7 +31,7 @@ public class BlockCustomGravel extends BlockFalling {
 	
 	@Override
 	public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
-		for (BlockCustomGravel.EnumType type : BlockCustomGravel.EnumType.values()) {
+		for (BlockColoredSand.EnumType type : BlockColoredSand.EnumType.values()) {
 			items.add(new ItemStack(this, 1, type.getMetadata()));
 		}
 	}
@@ -43,7 +43,7 @@ public class BlockCustomGravel extends BlockFalling {
 	
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return this.getDefaultState().withProperty(VARIANT, BlockCustomGravel.EnumType.byMetadata(meta));
+		return this.getDefaultState().withProperty(VARIANT, BlockColoredSand.EnumType.byMetadata(meta));
 	}
 	
 	@Override
@@ -68,11 +68,11 @@ public class BlockCustomGravel extends BlockFalling {
 	}
 	
 	public static enum EnumType implements IStringSerializable {
-		SMALL(0, "small_gravel", "small", MapColor.ADOBE, 0x74594B),
-		MEDIUM(1, "medium_gravel", "medium", MapColor.ADOBE, 0x74594B),
-		LARGE(2, "large_gravel", "large", MapColor.ADOBE, 0x74594B);
+		WHITE(0, "white_sand", "white", MapColor.WHITE_STAINED_HARDENED_CLAY, 0xE8D3C5),
+		BROWN(1, "brown_sand", "brown", MapColor.BROWN_STAINED_HARDENED_CLAY, 0xBC8D6D),
+		BLACK(2, "black_sand", "black", MapColor.BLACK, 0x231F27);
 		
-		private static final BlockCustomGravel.EnumType[] META_LOOKUP = new BlockCustomGravel.EnumType[values().length];
+		private static final BlockColoredSand.EnumType[] META_LOOKUP = new BlockColoredSand.EnumType[values().length];
 		private final int meta;
         private final String name;
         private final MapColor mapColor;
@@ -105,7 +105,7 @@ public class BlockCustomGravel extends BlockFalling {
         	return mapColor;
         }
         
-        public static BlockCustomGravel.EnumType byMetadata(int meta) {
+        public static BlockColoredSand.EnumType byMetadata(int meta) {
         	if (meta < 0 || meta >= META_LOOKUP.length) {
         		meta = 0;
         	}
@@ -123,7 +123,7 @@ public class BlockCustomGravel extends BlockFalling {
         }
         
         static {
-        	for (BlockCustomGravel.EnumType type : values()) {
+        	for (BlockColoredSand.EnumType type : values()) {
         		META_LOOKUP[type.getMetadata()] = type;
         	}
         }

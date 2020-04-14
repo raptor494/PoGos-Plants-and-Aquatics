@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "pogos_aquatics:blocks/black_sand"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "variant=small": { "model": "pogos_aquatics:small_gravel" },
+        "variant=medium": { "model": "pogos_aquatics:medium_gravel" },
+        "variant=large": { "model": "pogos_aquatics:large_gravel" }
+    }
+}

@@ -1,5 +1,8 @@
 itemGroup.pogos_aquatics=Pogo's Aquatics
 
-tile.pogos_aquatics.large_gravel.name=Large Gravel
-tile.pogos_aquatics.medium_gravel.name=Medium Gravel
-tile.pogos_aquatics.small_gravel.name=Small Gravel
+tile.pogos_aquatics.gravel.large.name=Large Gravel
+tile.pogos_aquatics.gravel.medium.name=Medium Gravel
+tile.pogos_aquatics.gravel.small.name=Small Gravel
+tile.pogos_aquatics.sand.white.name=White Sand
+tile.pogos_aquatics.sand.black.name=Black Sand
+tile.pogos_aquatics.sand.brown.name=Brown Sand
