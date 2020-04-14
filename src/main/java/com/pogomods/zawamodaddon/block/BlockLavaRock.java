@@ -1,9 +1,9 @@
 package com.pogomods.zawamodaddon.block;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFalling;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -13,15 +13,19 @@ import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockColoredSand extends BlockFalling {
+public class BlockLavaRock extends Block {
+
+	public static final PropertyEnum<BlockLavaRock.EnumType> VARIANT = PropertyEnum.create("variant", BlockLavaRock.EnumType.class);
 	
-	public static final PropertyEnum<BlockColoredSand.EnumType> VARIANT = PropertyEnum.create("variant", BlockColoredSand.EnumType.class);
+	public BlockLavaRock() {
+		super(Material.ROCK);
+		this.setDefaultState(this.getDefaultState().withProperty(VARIANT, BlockLavaRock.EnumType.BLACK));
+	}
 	
-	public BlockColoredSand() {
-		this.setDefaultState(this.getDefaultState().withProperty(VARIANT, BlockColoredSand.EnumType.WHITE));
+	@Override
+	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+		return state.getValue(VARIANT).getMapColor();
 	}
 	
 	@Override
@@ -31,35 +35,24 @@ public class BlockColoredSand extends BlockFalling {
 	
 	@Override
 	public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
-		for (BlockColoredSand.EnumType type : BlockColoredSand.EnumType.values()) {
+		for (BlockLavaRock.EnumType type : BlockLavaRock.EnumType.values()) {
 			items.add(new ItemStack(this, 1, type.getMetadata()));
 		}
 	}
 	
 	@Override
-	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
-		return state.getValue(VARIANT).getMapColor();
-	}
-	
-	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return this.getDefaultState().withProperty(VARIANT, BlockColoredSand.EnumType.byMetadata(meta));
+		return this.getDefaultState().withProperty(VARIANT, BlockLavaRock.EnumType.byMetadata(meta));
 	}
 	
 	@Override
 	public int getMetaFromState(IBlockState state) {
 		return state.getValue(VARIANT).getMetadata();
 	}
-	
+
 	@Override
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, VARIANT);
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public int getDustColor(IBlockState state) {
-		return state.getValue(VARIANT).getDustColor();
 	}
 	
 	@Override
@@ -68,28 +61,20 @@ public class BlockColoredSand extends BlockFalling {
 	}
 	
 	public static enum EnumType implements IStringSerializable {
-		WHITE(0, "white_sand", "white", MapColor.WHITE_STAINED_HARDENED_CLAY, 0xE8D3C5),
-		BROWN(1, "brown_sand", "brown", MapColor.BROWN_STAINED_HARDENED_CLAY, 0xBC8D6D),
-		BLACK(2, "black_sand", "black", MapColor.BLACK, 0x231F27);
+		BLACK(0, "black_lava_rock", "black", MapColor.BLACK),
+		RED(1, "red_lava_rock", "red", MapColor.RED_STAINED_HARDENED_CLAY);
 		
 		private static final EnumType[] META_LOOKUP = new EnumType[values().length];
 		private final int meta;
         private final String name;
         private final MapColor mapColor;
         private final String unlocalizedName;
-        private final int dustColor;
         
-        private EnumType(int meta, String name, String unlocalizedName, MapColor mapColor, int dustColor) {
+        private EnumType(int meta, String name, String unlocalizedName, MapColor mapColor) {
         	this.meta = meta;
         	this.name = name;
         	this.mapColor = mapColor;
         	this.unlocalizedName = unlocalizedName;
-        	this.dustColor = dustColor;
-        }
-        
-        @SideOnly(Side.CLIENT)
-        public int getDustColor() {
-        	return dustColor	;
         }
         
         public int getMetadata() {

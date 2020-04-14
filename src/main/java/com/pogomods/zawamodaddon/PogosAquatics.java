@@ -25,7 +25,7 @@ public class PogosAquatics {
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-
+		PogosAquaticsBlocks.initTools();
 	}
 	
 	public static ResourceLocation getResource(String name) {

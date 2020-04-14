@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=black_lava_rock": { "model": "pogos_aquatics:black_lava_rock" },
+        "variant=red_lava_rock": { "model": "pogos_aquatics:red_lava_rock" }
+    }
+}

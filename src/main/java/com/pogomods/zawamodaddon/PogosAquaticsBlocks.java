@@ -2,10 +2,10 @@ package com.pogomods.zawamodaddon;
 
 import com.pogomods.zawamodaddon.block.BlockColoredSand;
 import com.pogomods.zawamodaddon.block.BlockCustomGravel;
+import com.pogomods.zawamodaddon.block.BlockLavaRock;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
-import net.minecraft.block.material.MapColor;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -22,6 +22,7 @@ public class PogosAquaticsBlocks {
 	
 	public static final Block GRAVEL = null;
 	public static final Block SAND = null;
+	public static final Block LAVA_ROCK = null;
 
 	@EventBusSubscriber(modid = PogosAquatics.MODID)
 	public static class Registration {
@@ -32,7 +33,8 @@ public class PogosAquaticsBlocks {
 		public static void registerBlocks(RegistryEvent.Register<Block> event) {
 			event.getRegistry().registerAll(new Block[] {
 				createBlock("gravel", new BlockCustomGravel().setSoundType(SoundType.GROUND).setHardness(0.6F)),
-				createBlock("sand", new BlockColoredSand().setSoundType(SoundType.SAND).setHardness(0.5F))
+				createBlock("sand", new BlockColoredSand().setSoundType(SoundType.SAND).setHardness(0.5F)),
+				createBlock("lava_rock", new BlockLavaRock().setSoundType(SoundType.STONE).setHardness(1.0F).setResistance(5.0f)),
 			});
 		}
 		
@@ -41,6 +43,7 @@ public class PogosAquaticsBlocks {
 			event.getRegistry().registerAll(items = new Item[] {
 				createItemBlock(GRAVEL, itemStack -> BlockCustomGravel.EnumType.byMetadata(itemStack.getMetadata()).getUnlocalizedName()),
 				createItemBlock(SAND, itemStack -> BlockColoredSand.EnumType.byMetadata(itemStack.getMetadata()).getUnlocalizedName()),
+				createItemBlock(LAVA_ROCK, itemStack -> BlockLavaRock.EnumType.byMetadata(itemStack.getMetadata()).getUnlocalizedName()),
 			});
 		}
 		
@@ -66,6 +69,12 @@ public class PogosAquaticsBlocks {
 				ModelLoader.setCustomModelResourceLocation(item, type.getMetadata(),
 					new ModelResourceLocation(PogosAquatics.getResource(type.getName()), "inventory"));
 			}
+			
+			item = Item.getItemFromBlock(LAVA_ROCK);
+			for (BlockLavaRock.EnumType type : BlockLavaRock.EnumType.values()) {
+				ModelLoader.setCustomModelResourceLocation(item, type.getMetadata(),
+					new ModelResourceLocation(PogosAquatics.getResource(type.getName()), "inventory"));
+			}
 		}
 		
 		private static Block createBlock(String name, Block block) {
@@ -82,6 +91,12 @@ public class PogosAquaticsBlocks {
 			return new ItemMultiTexture(block, block, nameMapper).setRegistryName(block.getRegistryName());
 		}
 		
+	}
+	
+	static void initTools() {
+		GRAVEL.setHarvestLevel("shovel", 0);
+		SAND.setHarvestLevel("shovel", 0);
+		LAVA_ROCK.setHarvestLevel("pickaxe", 1);
 	}
 	
 }

@@ -72,7 +72,7 @@ public class BlockCustomGravel extends BlockFalling {
 		MEDIUM(1, "medium_gravel", "medium", MapColor.ADOBE, 0x74594B),
 		LARGE(2, "large_gravel", "large", MapColor.ADOBE, 0x74594B);
 		
-		private static final BlockCustomGravel.EnumType[] META_LOOKUP = new BlockCustomGravel.EnumType[values().length];
+		private static final EnumType[] META_LOOKUP = new EnumType[values().length];
 		private final int meta;
         private final String name;
         private final MapColor mapColor;
@@ -105,7 +105,7 @@ public class BlockCustomGravel extends BlockFalling {
         	return mapColor;
         }
         
-        public static BlockCustomGravel.EnumType byMetadata(int meta) {
+        public static EnumType byMetadata(int meta) {
         	if (meta < 0 || meta >= META_LOOKUP.length) {
         		meta = 0;
         	}
@@ -123,7 +123,7 @@ public class BlockCustomGravel extends BlockFalling {
         }
         
         static {
-        	for (BlockCustomGravel.EnumType type : values()) {
+        	for (EnumType type : values()) {
         		META_LOOKUP[type.getMetadata()] = type;
         	}
         }
